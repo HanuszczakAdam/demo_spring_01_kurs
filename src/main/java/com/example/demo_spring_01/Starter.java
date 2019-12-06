@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 @Component
-@ComponentScan({"com.example.demo_spring_01"})
 public class Starter implements CommandLineRunner {
 
     @Autowired
