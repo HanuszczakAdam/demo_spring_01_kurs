@@ -7,9 +7,13 @@
     <!-- bean definitions here -->
     <context:property-placeholder location="classpath:castle.properties"/>
 
-    <bean id="castle" class="com.example.demo_spring_01.domain.Castle" init-method="buildCastle"
-          destroy-method="destroyCastle">
-        <constructor-arg index="0" ref="knight"/>
+    <bean id="zamek" class="com.example.demo_spring_01.domain.Castle" init-method="buildCastle" destroy-method="destroyCastle">
+        <constructor-arg index="0" ref="lancelot"/>
         <property name="name" value="${castle_name:East Watch}"/>
     </bean>
+
+    <bean id="tournament" class="com.example.demo_spring_01.domain.Tournament">
+        <property name="knight" ref="percival"/>
+    </bean>
+
 </beans>

@@ -1,16 +1,23 @@
 package com.example.demo_spring_01.domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Castle {
 
+    @Value("${castle_name:Wschodnia Strażnica}")
     private String name;
+    private Knight knight;
 
-    Knight knight;
-
+    @Autowired
     public Castle(Knight knight) {
         this.knight = knight;
     }
 
-    Castle(Knight knight, String name) {
+    public Castle(Knight knight, String name) {
         this.knight = knight;
         this.name = name;
     }
