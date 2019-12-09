@@ -32,5 +32,10 @@ public class Starter implements CommandLineRunner {
         System.out.println(knightRepository);
         System.out.println(questRepository);
 
+        questRepository.createRandomQuest();
+        questRepository.createRandomQuest();
+        questRepository.createRandomQuest();
+
+        System.out.println(questRepository);
     }
 }
