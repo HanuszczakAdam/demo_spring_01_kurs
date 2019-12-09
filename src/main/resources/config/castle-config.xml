@@ -12,8 +12,21 @@
         <property name="name" value="${castle_name:East Watch}"/>
     </bean>
 
+<!--    <bean id="tournament" class="com.example.demo_spring_01.domain.Tournament">-->
+<!--        <property name="knight" ref="percival"/>-->
+<!--    </bean>-->
+
     <bean id="tournament" class="com.example.demo_spring_01.domain.Tournament">
-        <property name="knight" ref="percival"/>
+        <property name="knights">
+            <list>
+                <ref bean="lancelot"/>
+                <ref bean="percival"/>
+            </list>
+<!--                <map>-->
+<!--                    <entry key="lancelot" value-ref="lancelot"/>-->
+<!--                    <entry key="percival" value-ref="percival"/>-->
+<!--                </map>-->
+        </property>
     </bean>
 
 </beans>
