@@ -1,38 +1,36 @@
 package com.example.demo_spring_01;
 
 import com.example.demo_spring_01.domain.*;
+import com.example.demo_spring_01.domain.repository.KnightRepository;
+import com.example.demo_spring_01.domain.repository.QuestRepository;
+import com.example.demo_spring_01.services.QuestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("singleton")
 public class Starter implements CommandLineRunner {
 
     @Autowired
-    Castle castle;
+    KnightRepository knightRepository;
 
     @Autowired
-    Tournament tournament;
+    QuestRepository questRepository;
+
+    @Autowired
+    QuestService questService;
 
     @Override
     public void run(String... args) throws Exception {
 
-        System.out.println(castle);
 
-        castle.setName("NOTHINGHAM");
-        tournament.duel();
-        System.out.println(tournament);
-        System.out.println(castle);
+        questService.assignRandomQuest("Lancelot");
+        questService.assignRandomQuest("Percival");
 
-        /*
-        *
-        *FOR SINGLETON TEST
-        *
-        */
-        Person person = new Person("Agusia", 28);
-        //Classic Singleton
-        System.out.println(PersonUtils.getInstance().getUpperCasePersonName(person));
-        //Enum Singleton
-        System.out.println(PersonUtils2.INSTANCE.getUpperCasePersonName(person));
+        System.out.println(knightRepository);
+        System.out.println(questRepository);
+
     }
 }
